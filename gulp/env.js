@@ -4,4 +4,4 @@ module.exports =  {
   srcDir      : './src/assets',
   distDir     : './dist',
   tasksDir    : './gulp/tasks'
-}
+};

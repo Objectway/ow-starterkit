@@ -1,7 +1,8 @@
-var gulp = require('gulp');
-var del = require('del');
+var env     = require('../env.js'),
+    gulp    = require('gulp'),
+    del     = require('del');
 
-module.exports = function(cb) {
-   return del(['./dist/*'], cb);
+module.exports = function() {
+   return del([env.distDir]);
 };
 

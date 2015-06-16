@@ -1,11 +1,12 @@
+var env = require('../env.js');
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 
-module.exports = ['sass', 'jade'], function() {
+module.exports = function() {
   browserSync.init({
     open: false,
     server: {
-      baseDir: "./development"
+      baseDir: env.devDir
     },
     ghostMode: {
       clicks: false,

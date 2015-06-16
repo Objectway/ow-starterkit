@@ -9,5 +9,5 @@ module.exports = function() {
   .pipe(changed(env.srcDir + '/views/**/*.jade'))
   .pipe(jade({ pretty: true }))
   .pipe(gulp.dest(env.devDir))
-  .pipe(browserSync.reload({stream: true}))
+  .pipe(browserSync.reload({stream: true}));
 };

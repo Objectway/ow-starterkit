@@ -1,12 +1,13 @@
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var browserSync = require('browser-sync');
+var env       = require('../env.js'),
+    gulp      = require('gulp'),
+    minifyCss = require('gulp-minify-css'),
+    uglify    = require('gulp-uglify');
 
-module.exports = ['move'], function() {
-  gulp.src('./dist/css/main.css')
-    .pipe($.minifyCss())
-    .pipe(gulp.dest('./dist/css/'));
-  gulp.src('./dist/js/main.js')
-    .pipe($.uglify())
-    .pipe(gulp.dest('./dist/js/'))
+module.exports = function() {
+  gulp.src(env.distDir + '/styles/main.css')
+    .pipe(minifyCss())
+    .pipe(gulp.dest(env.distDir + '/styles/'));
+  gulp.src(env.distDir + '/scripts/main.js')
+    .pipe(uglify())
+    .pipe(gulp.dest(env.distDir + '/scripts/'));
 };

@@ -1,7 +1,8 @@
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
+var env     = require('../env.js'),
+    gulp    = require('gulp');
 
-module.exports = ['clean'], function() {
-  gulp.src(['./development/**/*', '!./development/sourcemaps/**/*'], { base: './development' })
-  .pipe(gulp.dest('./dist'));
+module.exports = function() {
+  var move = gulp.src([env.devDir + '/**/*', '!' + env.devDir + '/sourcemaps/', '!' + env.devDir + '/sourcemaps/**'], { base: env.devDir })
+    .pipe(gulp.dest(env.distDir));
+  return move;
 };
