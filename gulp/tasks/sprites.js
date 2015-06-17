@@ -14,10 +14,10 @@ module.exports = function () {
       },
       cssSpritesheetName: 'images',
 
-      // RETINA IMAGES //
+      // Retina images
       retinaSrcFilter: env.srcDir + '/images/**/*2x.png',
       retinaImgName: 'sprite@2x.png'
     })
   )
-    .pipe(gulpif('*.png', gulp.dest(env.srcDir + '/images/sprites/'), gulp.dest(env.srcDir + '/sass/sprites/')))
+    .pipe(gulpif('*.png', gulp.dest(env.srcDir + '/images/sprites/'), gulp.dest(env.srcDir + '/sass/sprites/')));
 };
