@@ -1,5 +1,5 @@
-var gulp = require('gulp');
-var env  = require('../env.js');
+var gulp = require('gulp'),
+    env  = require('../env.js');
 
 module.exports = function () {
   gulp.watch(env.srcDir + '/styles/**/*.sass', ['style']);
