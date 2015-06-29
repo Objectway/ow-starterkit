@@ -42,3 +42,10 @@ node_modules
 bower_components
 development
 dist
+
+# Editors #
+###########
+.idea
+*.sublime-project
+nbproject
+.nbproject
