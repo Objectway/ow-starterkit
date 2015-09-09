@@ -38,7 +38,7 @@ module.exports = function() {
         }))
         .pipe(gulp.dest(env.folder.src + '/styles/icons/dev/'));
 
-      gulp.src(env.folder.src + '/styles/icons/template/iconsViewer.scss')
+      gulp.src(env.folder.src + '/styles/icons/template/_icons.scss')
         .pipe(consolidate('lodash', {
           glyphs: glyphs,
           fontName: fontName,

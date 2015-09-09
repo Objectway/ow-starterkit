@@ -21,17 +21,17 @@ $logo-ow-total-width: 150px
 $logo-ow-total-height: 150px
 $logo-ow-image: 'sprite.png'
 $logo-ow: (0px, 0px, 0px, 0px, 150px, 150px, 150px, 150px, 'sprite.png', 'logo-ow', )
-$logo-ow@2x-name: 'logo-ow@2x'
-$logo-ow@2x-x: 0px
-$logo-ow@2x-y: 0px
-$logo-ow@2x-offset-x: 0px
-$logo-ow@2x-offset-y: 0px
-$logo-ow@2x-width: 300px
-$logo-ow@2x-height: 300px
-$logo-ow@2x-total-width: 300px
-$logo-ow@2x-total-height: 300px
-$logo-ow@2x-image: 'sprite@2x.png'
-$logo-ow@2x: (0px, 0px, 0px, 0px, 300px, 300px, 300px, 300px, 'sprite@2x.png', 'logo-ow@2x', )
+$logo-ow-2x-name: 'logo-ow_2x'
+$logo-ow-2x-x: 0px
+$logo-ow-2x-y: 0px
+$logo-ow-2x-offset-x: 0px
+$logo-ow-2x-offset-y: 0px
+$logo-ow-2x-width: 300px
+$logo-ow-2x-height: 300px
+$logo-ow-2x-total-width: 300px
+$logo-ow-2x-total-height: 300px
+$logo-ow-2x-image: 'sprite_2x.png'
+$logo-ow-2x: (0px, 0px, 0px, 0px, 300px, 300px, 300px, 300px, 'sprite_2x.png', 'logo-ow_2x', )
 $images-width: 150px
 $images-height: 150px
 $images-image: 'sprite.png'
@@ -39,9 +39,9 @@ $images-sprites: ($logo-ow, )
 $images: (150px, 150px, 'sprite.png', $images-sprites, )
 $retina-spritesheet-width: 300px
 $retina-spritesheet-height: 300px
-$retina-spritesheet-image: 'sprite@2x.png'
-$retina-spritesheet-sprites: ($logo-ow@2x, )
-$retina-spritesheet: (300px, 300px, 'sprite@2x.png', $retina-spritesheet-sprites, )
+$retina-spritesheet-image: 'sprite_2x.png'
+$retina-spritesheet-sprites: ($logo-ow-2x, )
+$retina-spritesheet: (300px, 300px, 'sprite_2x.png', $retina-spritesheet-sprites, )
 
 /*
   These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
@@ -49,7 +49,7 @@ $retina-spritesheet: (300px, 300px, 'sprite@2x.png', $retina-spritesheet-sprites
   The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
   */
 $logo-ow-group-name: 'logo-ow'
-$logo-ow-group: ('logo-ow', $logo-ow, $logo-ow@2x, )
+$logo-ow-group: ('logo-ow', $logo-ow, $logo-ow-2x, )
 $retina-groups: ($logo-ow-group, )
 
 /*

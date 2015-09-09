@@ -20,7 +20,7 @@ module.exports = function () {
       cssSpritesheetName: 'images',
       // Retina images
       retinaSrcFilter: env.folder.src + '/images/**/*2x.png',
-      retinaImgName: 'sprite@2x.png'
+      retinaImgName: 'sprite_2x.png'
     }))
     .pipe(gulpif(
       '*.png',

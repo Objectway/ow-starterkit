@@ -1,0 +1,34 @@
+@font-face {
+  font-family: '<%= fontName %>';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/<%= fontName %>.woff');
+}
+
+.<%= className %>:before {
+  display: inline-block;
+  font-family: '<%= fontName %>';
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.<%= className %>--lg {
+  font-size: 1.3333333333333333em;
+  line-height: .75em;
+  vertical-align: -15%;
+}
+
+.<%= className %>--2x { font-size: 2em; }
+.<%= className %>--3x { font-size: 3em; }
+.<%= className %>--4x { font-size: 4em; }
+.<%= className %>--5x { font-size: 5em; }
+.<%= className %>--fw {
+  text-align: center;
+  width: 1.2857142857142858em;
+}
+
+<% _.each(glyphs, function(glyph) { %>.<%= className %>--<%= glyph.name %>:before { content: '\<%= glyph.codepoint.toString(16).toUpperCase() %>'; }
+<% }); %>
