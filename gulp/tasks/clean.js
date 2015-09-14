@@ -5,6 +5,9 @@ var del = require('del');
 
 
 module.exports = function() {
-   return del([env.folder.dist]);
+   return del([
+    env.folder.dist,
+    env.folder.dev
+  ]);
 };
 

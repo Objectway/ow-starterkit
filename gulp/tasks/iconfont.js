@@ -7,45 +7,45 @@ var consolidate = require('gulp-consolidate');
 
 
 module.exports = function() {
-  var fontName = 'owFont';
-  var className = 'owIcon';
+  var fontName = 'OwFont';
+  var className = 'OwIcon';
 
-  gulp.src([env.folder.src + '/styles/icons/svgs/*.svg'])
+  gulp.src([env.folder.src + '/assets/icons/svgs/*.svg'])
     .pipe(iconfont({
       className: className,
       appendCodepoints: true,
-      fontName: 'owFont',
+      fontName: fontName,
       appendUnicode: true
     }))
     .on('glyphs', function(glyphs, options) {
       for(i = 0; i < glyphs.length; i++){
         glyphs[i].codepoint = 0xEA01 + i;
       }
-      gulp.src([env.folder.src + '/styles/icons/template/iconsViewer.html'])
+      gulp.src([env.folder.src + '/assets/icons/template/iconsViewer.html'])
         .pipe(consolidate('lodash', {
           glyphs: glyphs,
           fontName: fontName,
           className: className
         }))
-        .pipe(gulp.dest(env.folder.src + '/styles/icons/dev/'));
+        .pipe(gulp.dest(env.folder.src + '/fonts/dev/'));
 
-      gulp.src(env.folder.src + '/styles/icons/template/iconsViewer.css')
+      gulp.src(env.folder.src + '/assets/icons/template/iconsViewer.css')
         .pipe(consolidate('lodash', {
           glyphs: glyphs,
           fontName: fontName,
           className: className,
           fontPath: '../fonts/'
         }))
-        .pipe(gulp.dest(env.folder.src + '/styles/icons/dev/'));
+        .pipe(gulp.dest(env.folder.src + '/fonts/dev/'));
 
-      gulp.src(env.folder.src + '/styles/icons/template/_icons.scss')
+      gulp.src(env.folder.src + '/assets/icons/template/_icons.scss')
         .pipe(consolidate('lodash', {
           glyphs: glyphs,
           fontName: fontName,
           className: className,
-          fontPath: 'icons/fonts/'
+          fontPath: './fonts/'
         }))
-        .pipe(gulp.dest(env.folder.src + '/styles/icons/dev/'));
+        .pipe(gulp.dest(env.folder.src + '/styles/4-base/partials/'));
     })
-    .pipe(gulp.dest(env.folder.src + '/styles/icons/fonts/'));
+    .pipe(gulp.dest(env.folder.src + '/fonts/'));
 };

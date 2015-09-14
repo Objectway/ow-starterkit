@@ -5,9 +5,9 @@ var fontgen = require('gulp-fontgen');
 
 
 module.exports = function () {
-  return gulp.src(env.folder.src + '/styles/fonts/*.{otf,ttf}')
+  return gulp.src(env.folder.src + '/assets/fonts/*.{otf,ttf}')
     .pipe(fontgen({
-      css_fontpath: 'fonts/',
-      dest: env.folder.src + '/styles/fonts/'
+      css_fontpath: '../../fonts/',
+      dest: env.folder.src + '/fonts/'
     }));
 };

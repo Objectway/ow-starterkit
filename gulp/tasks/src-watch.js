@@ -45,17 +45,17 @@ function watchFunc(vinyl) {
       break;
 
     // ASSETS
-    case 'js':
-    case 'css':
-    case 'gif':
-    case 'ico':
-    case 'jpg':
-    case 'png':
-    case 'svg':
-    case 'txt':
-    case 'html':
-    case 'json':
-    case 'woff':
+    case '.js':
+    case '.css':
+    case '.gif':
+    case '.ico':
+    case '.jpg':
+    case '.png':
+    case '.svg':
+    case '.txt':
+    case '.html':
+    case '.json':
+    case '.woff':
       if(vinyl.event == 'unlink') {
         del(env.folder.dev + '/' + vinyl.relative)
         util.log(util.colors.yellow(

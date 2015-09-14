@@ -7,7 +7,11 @@
     "compile": "gulp compile",
     "build": "gulp dist",
     "regression": "bash scripts/backstop.sh",
-    "dev": "gulp"
+    "dev": "gulp",
+    "icon" : "gulp iconfont",
+    "sprite" : "gulp sprite",
+    "clean" : "gulp clean",
+    "copy" : "gulp copy"
   },
   "repository": {
     "type": "git",

@@ -29,5 +29,5 @@ gulp.task('compress', ['minify'], env.loadTask('compress'));
 // USEFUL TASKS
 gulp.task('dist', ['clean', 'compress']);
 gulp.task('compile', ['style', 'view', 'script']);
-gulp.task('default', ['compile', 'srcWatch', 'copy'], env.loadTask('browser-sync'));
+gulp.task('default', ['compile', 'copy', 'srcWatch'], env.loadTask('browser-sync'));
 gulp.task('serve', ['srcWatch'], env.loadTask('browser-sync'));
