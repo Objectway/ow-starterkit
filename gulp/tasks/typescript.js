@@ -2,6 +2,7 @@ var env = require('../env.js');
 var gulp = require('gulp');
 var sourcemaps = require('gulp-sourcemaps');
 var changed = require('gulp-changed');
+var notify = require('gulp-notify');
 var typescript = require('gulp-typescript');
 var util = require('gulp-util');
 
@@ -22,9 +23,14 @@ module.exports = function() {
       allowImportModule : true,
       out: 'main.js'
     }))
-    .on('error', function (err) {
-      util.log(err.message);
-      this.emit('end');
-    })
+    .on("error", notify.onError(function (error) {
+      return {
+        title: "TYPESCRIPT ERROR:",
+        message: error.message,
+        notifier: function (options) {
+          this.emit("end");
+        }
+      };
+    }))
     .js.pipe(gulp.dest(env.folder.dev + '/scripts/'));
 };

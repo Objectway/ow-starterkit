@@ -8,6 +8,7 @@ var cssPrefix = require('gulp-css-prefix');
 var debug = require('gulp-debug');
 var gulpif = require('gulp-if');
 var mqpacker = require('css-mqpacker');
+var notify = require('gulp-notify');
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -30,10 +31,16 @@ module.exports = function() {
     // The sass options are in ../env.js
     .pipe(sass(env.sass))
 
-    .on('error', function (err) {
-      util.log(util.colors.yellow(err.message));
-      this.emit('end');
-    })
+
+    .on("error", notify.onError(function (error) {
+      return {
+        title: "SASS ERROR:",
+        message: error.message,
+        notifier: function (options) {
+          this.emit("end");
+        }
+      };
+    }))
 
     // via ../env.js we'll prepend our css with a specified class
     .pipe(gulpif(

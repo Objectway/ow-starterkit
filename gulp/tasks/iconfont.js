@@ -47,5 +47,9 @@ module.exports = function() {
         }))
         .pipe(gulp.dest(env.folder.src + '/styles/4-base/partials/'));
     })
+    .on('error', function (err) {
+      util.log(util.colors.yellow(err.message));
+      this.emit('end');
+    })
     .pipe(gulp.dest(env.folder.src + '/fonts/'));
 };

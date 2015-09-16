@@ -5,6 +5,7 @@ var argv = require('yargs').argv;
 var changed = require('gulp-changed');
 var debug = require('gulp-debug');
 var jade = require('gulp-jade');
+var notify = require('gulp-notify');
 var util = require('gulp-util');
 
 
@@ -20,10 +21,15 @@ module.exports = function() {
     '!' + env.folder.src + '/**/_*.jade'
   ])
     .pipe(jade(env.jade))
-    .on('error', function (err) {
-      util.log(err.message);
-      this.emit('end');
-    })
+    .on("error", notify.onError(function (error) {
+      return {
+        title: "JADE ERROR:",
+        message: error.message,
+        notifier: function (options) {
+          this.emit("end");
+        }
+      };
+    }))
 
     // We will write only the changed files
     .pipe(changed(destination, {hasChanged: changed.compareSha1Digest}))
