@@ -62,7 +62,7 @@ function watchFunc(vinyl) {
           env.folder.dev + '/' + vinyl.relative + 'DELETED'
         ));
       }
-      sequence('copyAssets');
+      sequence('copy');
       break;
 
     // WTF?
