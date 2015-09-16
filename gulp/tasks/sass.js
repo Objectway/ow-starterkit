@@ -31,7 +31,7 @@ module.exports = function() {
     .pipe(sass(env.sass))
 
     .on('error', function (err) {
-      util.log(err.message);
+      util.log(util.colors.yellow(err.message));
       this.emit('end');
     })
 
