@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var iconfont = require('gulp-iconfont');
 var iconfontcss = require('gulp-iconfont-css');
 var consolidate = require('gulp-consolidate');
-
+var util = require('gulp-util');
 
 
 module.exports = function() {
