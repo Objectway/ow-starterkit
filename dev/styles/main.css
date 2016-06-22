@@ -42,7 +42,7 @@ a,
 button {
   color: inherit;
   -webkit-transition: 0.3s;
-          transition: 0.3s; }
+  transition: 0.3s; }
 
 a {
   text-decoration: none; }
@@ -242,4 +242,4 @@ The `retina-sprites` mixin generates a CSS rule and media query for retina group
 @include retina-sprites($retina-groups);
 */
 
-/*# sourceMappingURL=../styles/main.css.map */
+/*# sourceMappingURL=main.css.map */
