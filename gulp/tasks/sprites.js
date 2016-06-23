@@ -3,9 +3,7 @@ var gulp = require('gulp');
 var sprite = require('gulp.spritesmith');
 var gulpif = require('gulp-if');
 
-
-
-module.exports = function () {
+module.exports = function() {
   var sources = [
     env.folder.src + '/assets/images/**/*.png'
   ];
@@ -15,7 +13,9 @@ module.exports = function () {
       imgName: 'sprite.png',
       cssName: '_sprites.scss',
       algorithm: 'binary-tree',
-      algorithmOpts: { sort: false },
+      algorithmOpts: {
+        sort: false
+      },
       cssSpritesheetName: 'images',
       // Retina images
       retinaSrcFilter: env.folder.src + '/assets/images/**/*2x.png',
@@ -24,6 +24,5 @@ module.exports = function () {
     .pipe(gulpif(
       '*.png',
       gulp.dest(env.folder.src + '/images/sprites/'),
-      gulp.dest(env.folder.src + '/styles/4-base/partials'))
-    );
+      gulp.dest(env.folder.src + '/styles/4-base/partials')));
 };

@@ -12,9 +12,7 @@ var notify = require('gulp-notify');
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
-var util = require('gulp-util');
-
-
+// var util = require('gulp-util');
 
 module.exports = function() {
   // Via yargs we will set if we are in distribution mode,
@@ -23,48 +21,52 @@ module.exports = function() {
   var destination = argv.dist ? env.folder.dist : env.folder.dev;
 
   return gulp.src([
-      env.folder.src + '/**/*.+(scss|sass)',
-    ])
+    env.folder.src + '/**/*.+(scss|sass)'
+  ])
     .pipe(sourcemaps.init())
 
+  // The sass options are in ../env.js
+  .pipe(sass(env.sass))
 
-    // The sass options are in ../env.js
-    .pipe(sass(env.sass))
+  .on("error", notify.onError(function(error) {
+    return {
+      title: "SASS ERROR:",
+      message: error.message,
+      notifier: function(options) {
+        this.emit("end");
+      }
+    };
+  }))
 
+  // via ../env.js we'll prepend our css with a specified class
+  .pipe(gulpif(
+    env.namespaceCSS,
+    cssPrefix({
+      parentClass: env.namespaceCSS
+    })
+  ))
 
-    .on("error", notify.onError(function (error) {
-      return {
-        title: "SASS ERROR:",
-        message: error.message,
-        notifier: function (options) {
-          this.emit("end");
-        }
-      };
-    }))
+  .pipe(
+    postcss([
+      autoprefixer({
+        browsers: env.compatibility,
+        cascade: true
+      }),
+      mqpacker({
+        sort: true
+      })
+    ])
+  )
 
-    // via ../env.js we'll prepend our css with a specified class
-    .pipe(gulpif(
-      env.namespaceCSS,
-      cssPrefix({'parentClass': env.namespaceCSS})
-    ))
+  .pipe(gulpif(!argv.dist, sourcemaps.write('/')))
 
-    .pipe(
-      postcss([
-        autoprefixer({
-          browsers: env.compatibility,
-          cascade: true
-        }),
-        mqpacker({
-          sort: true
-        })
-      ])
-    )
-
-    .pipe(gulpif(!argv.dist, sourcemaps.write('/')))
-
-    // We will write only the changed files
-    .pipe(changed(destination + '/', {hasChanged: changed.compareSha1Digest}))
+  // We will write only the changed files
+  .pipe(changed(destination + '/', {
+    hasChanged: changed.compareSha1Digest
+  }))
     .pipe(gulp.dest(destination + '/'))
 
-    .pipe(debug({title: 'Styles compiled: '}));
+  .pipe(debug({
+    title: 'Styles compiled: '
+  }));
 };

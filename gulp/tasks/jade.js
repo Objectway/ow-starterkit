@@ -6,11 +6,9 @@ var changed = require('gulp-changed');
 var debug = require('gulp-debug');
 var jade = require('gulp-jade');
 var notify = require('gulp-notify');
-var util = require('gulp-util');
-
+// var util = require('gulp-util');
 
 module.exports = function() {
-
   // Via yargs we will set if we are in distribution mode,
   // we will change directory and the code output to minified version
   env.jade.pretty = argv.dist ? false : true;
@@ -21,20 +19,24 @@ module.exports = function() {
     '!' + env.folder.src + '/**/_*.jade'
   ])
     .pipe(jade(env.jade))
-    .on("error", notify.onError(function (error) {
+    .on("error", notify.onError(function(error) {
       return {
         title: "JADE ERROR:",
         message: error.message,
-        notifier: function (options) {
+        notifier: function(options) {
           this.emit("end");
         }
       };
     }))
 
-    // We will write only the changed files
-    .pipe(changed(destination, {hasChanged: changed.compareSha1Digest}))
+  // We will write only the changed files
+  .pipe(changed(destination, {
+    hasChanged: changed.compareSha1Digest
+  }))
 
-    .pipe(gulp.dest(destination))
+  .pipe(gulp.dest(destination))
 
-    .pipe(debug({title: 'Views compiled: '}));
+  .pipe(debug({
+    title: 'Views compiled: '
+  }));
 };

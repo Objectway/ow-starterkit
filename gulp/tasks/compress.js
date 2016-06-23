@@ -5,9 +5,7 @@ var gzip = require('gulp-gzip');
 var dateFormat = require('dateformat');
 // var revision = require('git-rev-sync')
 
-
-
-module.exports = function () {
+module.exports = function() {
   return gulp.src(env.folder.dist + '/**/*')
     // .pipe(tar(revision.short() + '-build.tar'))
     .pipe(tar(dateFormat(new Date(), "yyyymmdd-HHMM") + '-build.tar'))

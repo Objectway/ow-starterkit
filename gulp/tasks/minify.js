@@ -3,8 +3,6 @@ var gulp = require('gulp');
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 
-
-
 module.exports = function() {
   gulp.src(env.folder.dist + '/styles/main.css')
     .pipe(minifyCss())

@@ -1,8 +1,6 @@
 var env = require('../env.js');
-var gulp = require('gulp');
+// var gulp = require('gulp');
 var bs = require('browser-sync').create();
-
-
 
 module.exports = function() {
   bs.init({
