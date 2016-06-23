@@ -15,7 +15,6 @@ exports.folder = {
   tasks: './tasks'
 };
 
-
 // -----------------------------------------------------------------------------
 // Setting for CSS autoprefixer
 // -----------------------------------------------------------------------------
@@ -47,23 +46,22 @@ exports.sass = {
   imagePath: '../images',
   sourceMap: true,
   includePaths: [
-  exports.folder.src + '/app_components',
-  './node_modules/'
+    exports.folder.src + '/app_components',
+    './node_modules/'
   ],
   functions: {
     'image-url($url)': function(url) {
       var imagePath = "../images/";
-      var newUrl = new require('node-sass')
+      var newUrl = require('node-sass')
         .types.String(
           "url('" + imagePath + url.getValue() + "')  /*ImageEmbed:skip*/"
         );
       return newUrl;
     }
   }
-}
+};
 
 // -----------------------------------------------------------------------------
 // Exported object
 // -----------------------------------------------------------------------------
-module.exports =  exports;
-
+module.exports = exports;

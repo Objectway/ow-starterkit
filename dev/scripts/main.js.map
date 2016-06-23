@@ -1,0 +1,1 @@
+{"version":3,"sources":["_myJsFunction.js","_myTest.js"],"names":[],"mappings":"AAAA,QAAQ,GAAR,CAAY,MAAZ;ACAA,QAAQ,GAAR,CAAY,aAAZ","file":"main.js","sourcesContent":["console.log('test');\n","console.log('hellOOooOOo');\n"],"sourceRoot":"/source/"}

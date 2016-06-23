@@ -6,16 +6,15 @@
 // $ gulp serve -> Just serve the local webserver
 // *****************************************************************
 
-
 var env = require('./gulp/env.js');
 var gulp = require('gulp');
-
 
 // BASE SINGLE TASKS
 gulp.task('style', env.loadTask('sass'));
 gulp.task('view', env.loadTask('jade'));
 gulp.task('sprite', env.loadTask('sprites'));
-gulp.task('script', env.loadTask('typescript'));
+// gulp.task('script', env.loadTask('typescript'));
+gulp.task('script', env.loadTask('babel'));
 gulp.task('font', env.loadTask('fontgen'));
 gulp.task('iconfont', env.loadTask('iconfont'));
 gulp.task('srcWatch', env.loadTask('src-watch'));
@@ -24,7 +23,6 @@ gulp.task('minify', ['move'], env.loadTask('minify'));
 gulp.task('move', env.loadTask('move'));
 gulp.task('copy', env.loadTask('copy-assets'));
 gulp.task('compress', ['minify'], env.loadTask('compress'));
-
 
 // USEFUL TASKS
 gulp.task('dist', ['clean', 'compress']);
