@@ -1,1 +1,3 @@
-@import 'super-gigi/dist/helpers/normalize';
+// @import 'super-gigi/dist/helpers/normalize';
+@import 'normalize-scss/sass/normalize';
+@include normalize();
