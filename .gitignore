@@ -49,3 +49,7 @@ dist
 *.sublime-project
 nbproject
 .nbproject
+
+# DEV folder #
+##############
+dev
