@@ -6,7 +6,9 @@ var gulp = require('gulp');
 module.exports = function() {
   gulp.src([
     env.folder.src + '/**/*.*',
-    '!' + env.folder.src + '/**/*.+(scss|sass|jade|ts|js)',
+    '!' + env.folder.src + '/**/*.+(scss|sass|jade|ts)',
+    '!' + env.folder.src + '/scripts/*.js',
+    env.folder.src + '/scripts/vendor/*.*/*.js',
     '!' + env.folder.src + '/assets',
     '!' + env.folder.src + '/assets/**/*'
   ])

@@ -8,7 +8,10 @@ var notify = require('gulp-notify');
 // var util = require('gulp-util');
 
 module.exports = function() {
-  var sources = env.folder.src + '/scripts/**/*.js';
+  var sources = [
+    env.folder.src + '/scripts/**/*.js',
+    '!' + env.folder.src + '/scripts/vendor/**/*.*'
+  ];
 
   return gulp.src(sources)
     .pipe(sourcemaps.init())

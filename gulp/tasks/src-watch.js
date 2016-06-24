@@ -34,7 +34,7 @@ function watchFunc(vinyl) {
       break;
 
     // SCRIPTS
-    case '.ts':
+    case '.js':
       if (vinyl.event === 'unlink') {
         del(fileCompiled + '.js');
         del(fileCompiled + '.js.map');
@@ -44,7 +44,6 @@ function watchFunc(vinyl) {
       break;
 
     // ASSETS
-    case '.js':
     case '.css':
     case '.gif':
     case '.ico':
