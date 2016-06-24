@@ -19,7 +19,7 @@ module.exports = function() {
     .pipe(babel())
     .on("error", notify.onError(function(error) {
       return {
-        title: 'TYPESCRIPT ERROR:',
+        title: 'JS ERROR:',
         message: error.message,
         notifier: function(options) {
           this.emit('end');
