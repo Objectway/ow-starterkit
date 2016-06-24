@@ -25,9 +25,13 @@
       "transform-es2015-duplicate-keys",
       "transform-es2015-for-of",
       "transform-es2015-function-name",
-      "transform-es2015-literals", ["transform-es2015-modules-commonjs", {
-        "strict": false
-      }],
+      "transform-es2015-literals",
+      [
+        "transform-es2015-modules-commonjs",
+        {
+          "strict": false
+        }
+      ],
       "transform-es2015-object-super",
       "transform-es2015-parameters",
       "transform-es2015-shorthand-properties",
@@ -107,5 +111,8 @@
     "squirejs": "^0.2.1",
     "super-gigi": "^1.0.9",
     "yargs": "^4.7.1"
+  },
+  "dependencies": {
+    "normalize-scss": "^5.0.3"
   }
 }
