@@ -1,5 +1,3 @@
-// CHART TEST
-
 var chart = c3.generate({
   bindto: '.chart',
   data: {
@@ -22,7 +20,7 @@ var chart = c3.generate({
   },
   bar: {
     width: {
-      width: 100
+      ratio: 0.5
     }
   }
 });
