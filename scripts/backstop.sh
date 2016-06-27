@@ -7,5 +7,5 @@
 ############################
 
 cd ./node_modules/backstopjs/
-gulp reference
-gulp test
+npm run reference
+npm run test
