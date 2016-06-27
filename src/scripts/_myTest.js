@@ -20,7 +20,7 @@ var chart = c3.generate({
   },
   bar: {
     width: {
-      ratio: 0.5
+      ratio: 0.8
     }
   }
 });
