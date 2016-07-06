@@ -46,9 +46,9 @@ dist
 # Editors #
 ###########
 .idea
-*.sublime-project
 nbproject
 .nbproject
+*.sublime*
 
 # DEV folder #
 ##############
